@@ -10,4 +10,12 @@ runs it will minimize/open the target window. Useful when called with a keyboard
 ## Running
 `./path/to/dir/togglewindow`
 
-I recommend going to your settings and adding a keyboard shortcut to run the script.
+When the window closes the next time you run the script it will select that currently active window.
+To manually reset run
+`./path/to/dir/rmwindows`.
+
+I recommend adding a keyboard shortcut to run both scripts.
+
+## TODO
+- Shift towards GNOME extension
+- Allow for multiple window shortcuts
