@@ -5,7 +5,7 @@ runs it will minimize/open the target window. Useful when called with a keyboard
 ## Instillation
 `git clone https://github.com/joshpetit/toggle-window.git`
 `cd toggle-window`
-`chmod +x togglewindow`
+`chmod +x togglewindow rmwindows`
 
 ## Running
 `./path/to/dir/togglewindow`
