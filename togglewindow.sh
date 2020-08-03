@@ -5,7 +5,7 @@ then
     exit
 fi
 
-function checkID {
+function check_id {
   windowID=$(printf 0x%x "$TOGGLE_WINDOW_A")
   presence=$(xwininfo -root -tree | grep "$windowID")
   echo "$presence"
@@ -17,12 +17,16 @@ then
   export TOGGLE_WINDOW_A=$value
   echo "$TOGGLE_WINDOW_A"
   notify-send -h int:transient:1 "Toggle Window" "Window Set"
-elif [[ $(checkID) = "" ]]
+elif [[ $(check_id) = "" ]]
 then
     value="$(xdotool getactivewindow)"
     export TOGGLE_WINDOW_A=$value
     echo "$TOGGLE_WINDOW_A"
     notify-send -h int:transient:1 "Toggle Window" "Window Reset"
+elif [[ $TOGGLE_WINDOW_A = $(xdotool getactivewindow) ]]
+then
+  xdotool windowminimize $TOGGLE_WINDOW_A
+  echo "Minimized Window"
 else
   xdotool windowactivate "$TOGGLE_WINDOW_A"
   echo "Window Activate Ran"
